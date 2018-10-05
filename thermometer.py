@@ -62,6 +62,10 @@ def process_event(event):
         for command, params in event.actions:
             print('Do command', command, 'with params', str(params))
 
+            if command == 'com.example.commands.Thermometer':
+                #TODO - Sensehat
+                pass
+
 
 def main():
     parser = argparse.ArgumentParser(

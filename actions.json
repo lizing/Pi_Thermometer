@@ -1,0 +1,56 @@
+{
+    "manifest": {
+        "displayName": "Pi Thermometer",
+        "invocationName": "Pi",
+        "category": "WEATHER"
+    },
+    "actions": [
+        {
+            "name": "com.example.actions.Thermometer",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.Thermometer",
+                "parameters": [
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "What is the Temperature?",
+                        "Tell me about the Temperature"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Temperature is $temperature degree and humidity is $humidity percent"
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.Thermometer",
+                                    "params": {
+                                        "temperature": "$temperature",
+                                        "humidity": "humidity"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "types": [
+        {
+        }
+    ]
+}
